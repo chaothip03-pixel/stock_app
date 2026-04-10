@@ -82,12 +82,15 @@ http://<IPเครื่องคอม>:8550
 
 ##  ตัวอย่างหน้าจอ
 
-* หน้า Login
-![S__6160388](https://github.com/user-attachments/assets/70b63378-4714-4421-8061-adba4cf3aab4)
+###  หน้า Login
+![Login](images/login.png)
 
-  
-* หน้า Dashboard
-* หน้า Products
+###  Dashboard
+![Dashboard](images/dashboard.png)
+
+###  Products
+![Products](images/products.png)
+
 
 
 ---
