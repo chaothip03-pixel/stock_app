@@ -1,76 +1,98 @@
-#  ระบบจัดการคลังสินค้า (Stock Management Mobile App)
+#  ระบบจัดการสต็อกสินค้า (Stock Management App)
+
+##  ผู้จัดทำ
+
+* รหัสนักศึกษา: 641310394
+* ชื่อ: (ช่อทิพย์ คงมาลัย)
 
 ---
 
-##  ภาพรวมโครงงาน
-โปรเจคนี้เป็นแอปพลิเคชันสำหรับจัดการสินค้าในคลัง โดยผู้ใช้สามารถเพิ่ม ลบ และปรับจำนวนสินค้าได้ รวมถึงสามารถดูประวัติการทำรายการต่าง ๆ ได้ และสามารถใช้งานผ่านมือถือได้
+##  รายละเอียดโปรเจค
 
----
-
-##  วัตถุประสงค์
-- เพื่อพัฒนาระบบจัดการสินค้า
-- เพื่อบันทึกการเคลื่อนไหวของสินค้า (เพิ่ม / เบิก)
-- เพื่อพัฒนาแอปพลิเคชันที่สามารถใช้งานบนมือถือได้
+แอปพลิเคชันสำหรับจัดการสต็อกสินค้า สามารถเพิ่มสินค้า เบิกสินค้า และดูประวัติการใช้งานได้ โดยพัฒนาในรูปแบบ Mobile Web Application
 
 ---
 
 ##  เทคโนโลยีที่ใช้
-- Python
-- FastAPI (Backend)
-- Flet (Frontend Mobile App)
-- MariaDB (Database)
+
+* Backend: FastAPI (Python)
+* Database: MariaDB
+* Frontend: Flet (Python)
+* API: RESTful API
 
 ---
 
 ##  ฟีเจอร์ของระบบ
-- 🔐 Login / Logout
-- 📊 Dashboard (แสดงจำนวนสินค้า และสินค้าที่ใกล้หมด)
-- 📦 เพิ่มสินค้า
-- ❌ ลบสินค้า
-- ➕ เพิ่มจำนวนสินค้า
-- ➖ เบิกสินค้า
-- 📜 แสดงประวัติการทำรายการ (History)
+
+*  Login / Logout
+*  Dashboard แสดงจำนวนสินค้า
+*  จัดการสินค้า (เพิ่ม / ลบ)
+*  เพิ่มสินค้าใหม่
+*  เบิกสินค้า
+*  แสดงประวัติการทำรายการ (History)
+*  แจ้งเตือนสินค้าใกล้หมด
+*  ใช้งานผ่านมือถือได้
 
 ---
 
-##  โครงสร้างฐานข้อมูล
+##  โครงสร้างโปรเจค
 
-###  users
-- id (Primary Key)
-- username
-- password
-
-###  products
-- id (Primary Key)
-- name
-- quantity
-- min_quantity
-- image
-
-###  transactions
-- id (Primary Key)
-- product_id (Foreign Key)
-- type (IN / OUT)
-- quantity
-- created_at
+```
+stock_app/
+│
+├── backend/
+│   ├── main.py
+│   └── database.py
+│
+├── frontend/
+│   └── app.py
+│
+└── README.md
+```
 
 ---
 
-##  API ที่ใช้
-- `/login` → เข้าสู่ระบบ
-- `/products` → จัดการสินค้า
-- `/transaction` → เพิ่ม / เบิกสินค้า
-- `/history` → ดูประวัติ
-- `/stats` → ข้อมูล Dashboard
+##  วิธีรันระบบ
 
----
+### 1. รัน Backend
 
-## วิธีการรันโปรแกรม
+```
+cd backend
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
 
-###  1. รัน Backend (FastAPI)
-```bash
-uvicorn main:app --reload
+### 2. รัน Frontend
 
-
- 2. รัน Frontend (Flet)
+```
+cd frontend
 python app.py
+```
+
+---
+
+##  การใช้งานผ่านมือถือ
+
+เปิด Browser ในมือถือ แล้วเข้า:
+
+```
+http://<IPเครื่องคอม>:8550
+```
+
+---
+
+##  ตัวอย่างหน้าจอ
+
+* หน้า Login
+![S__6160388](https://github.com/user-attachments/assets/70b63378-4714-4421-8061-adba4cf3aab4)
+
+  
+* หน้า Dashboard
+* หน้า Products
+
+
+---
+
+##  หมายเหตุ
+
+ระบบนี้พัฒนาเพื่อการศึกษา และสามารถใช้งานได้จริงในระดับพื้นฐาน
+
